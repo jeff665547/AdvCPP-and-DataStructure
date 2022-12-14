@@ -37,7 +37,7 @@ public:
     }
     Vector(const Vector& rhs) {
         std::cout << "Copy constructor" << std::endl;
-        elems_ = new ValueType[rhs.size_];
+        elems_ = new ValueType[rhs.size_]; // * 不預設矩陣內的元素值
         size_ = rhs.size_;
         for (SizeType i = 0; i < size_; i++) {
             elems_[i] = rhs.elems_[i];
