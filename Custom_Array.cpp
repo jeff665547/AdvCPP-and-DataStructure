@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 namespace STD{
 template<typename T, int N>
 class Array{
@@ -63,9 +64,13 @@ class Array{
         }
     }
     void Swap(Array& other) {
-        for(int i = 0; i < N; i++) {
-            std::swap(arr[i], other.arr[i]);
-        }
+        std::swap(other, *this);  // * 因為有實作觸發移動建構以及移動賦值，觸發移動建構以及移動賦值來進行交換。
+
+        /* 用複製來實作交換的版本
+        Array tmp = *this;  // * 透過包裝成Array類別來直接複製類別內部的C風格陣列。
+        *this = other;
+        other = tmp;
+        */
     }
     int Size() const {
         return N;

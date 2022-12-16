@@ -126,7 +126,13 @@ class Vector{
         }
     }
     void Swap(Vector& other) {
-        std::swap(other, *this);
+        std::swap(other, *this);                // * 在C++11中，若待交換的類別有支援移動建構子以及移動賦值運算子(有實作)的話，
+                                                //   std::swap()就會使用移動的方式，如果沒有時做上述兩者的話，則會觸發複製建
+                                                //   構子以及複製賦值運算子，交換的結果會比較耗時。
+
+        // std::swap(other.data_, data_);         // * 如果Vector沒有實作移動建構子以及移動賦值運算子時要採取此種寫法來移動內
+        // std::swap(other.size_, size_);         //   部資源，避免std::swap去針對整個Vector做複製建構以及複製賦值運算，花費
+        // std::swap(other.capacity_, capacity_); //   大量的時間。
     }
     class ConstIterator{
       public:
