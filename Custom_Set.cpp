@@ -108,6 +108,7 @@ class Set{
             if(std::begin(data_[index]) != std::end(data_[index])) data_[index].clear();
             index++;
         }
+        // (?)
         // for(Iterator it = Begin(); it != End(); it++) {
         //     int index = it.index_;
         //     data_[index].clear();
@@ -211,6 +212,7 @@ class Set<int>{
             if(std::begin(data_[index]) != std::end(data_[index])) data_[index].clear();
             index++;
         }
+        // (?)
         // for(Iterator it = Begin(); it != End(); it++) {
         //     int index = it.index_;
         //     data_[index].clear();
