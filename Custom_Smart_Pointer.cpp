@@ -165,7 +165,7 @@ int main() {
     std::unique_ptr<LargeObject> up1 = std::make_unique<LargeObject>("A");
     std::unique_ptr<LargeObject> up2 = std::make_unique<LargeObject>("B");
     std::unique_ptr<LargeObject> up3 = std::make_unique<LargeObject>("C");
-    std::vector<std::unique_ptr<LargeObject>> upv;
+    std::vector<std::unique_ptr<LargeObject>> upv;  // 使用std::unique_ptr的vector來自動管理內部大型資源
     upv.push_back(std::move(up1));
     upv.push_back(std::move(up2));
     upv.push_back(std::move(up3));
